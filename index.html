@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>reCAPTCHA demo: Simple page</title>
-   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <title>Invisible reCAPTCHA</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+  <h1>Invisible reCAPTCHA</h1>
   <form action="?" method="POST">
-    <div class="g-recaptcha" data-sitekey="6LefR28UAAAAAJhVOMSqOhL1tBnU1N2tbMbLUpYz"></div>
+    <button class="g-recaptcha"
+        data-callback='onSubmit'
+        data-sitekey="6LdHUW8UAAAAAFr9Wc6T1Z5F5q9QuUeWGtHqPvTq">
+      Submit
+    </button>
     <br/>
-    <input type="submit" value="Submit">
   </form>
+<script>
+function onSubmit (token) {
+  console.log(token);
+}
+</script>
 </body>
 </html>
