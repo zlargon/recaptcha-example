@@ -19,6 +19,25 @@
 function onSubmit (token) {
   console.log(token);
 }
+
+function test (delay = 1000) {
+  grecaptcha.execute();
+
+  setTimeout(function () {
+    const token = grecaptcha.getResponse();
+
+    // copy to clipboard
+    const textarea = document.createElement('textarea');
+    textarea.value = token;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    console.log('token is copied to clipboard.');
+
+    grecaptcha.reset();
+  }, delay);
+}
 </script>
 </body>
 </html>
